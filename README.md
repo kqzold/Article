@@ -36,10 +36,39 @@
 5. Приложение будет доступно по адресу:
 http://localhost:8080
 
+
+## База данных
 ## База данных
 1. Подключение к базе данных
+   Настройте файл `application.properties` следующим образом:
+   ```properties
+   spring.datasource.url=jdbc:mariadb://localhost:3306/db_articles
+   spring.datasource.username=articles
+   spring.datasource.password=articles
 
-2. Откройте вкладку "Database":
+   spring.jpa.hibernate.ddl-auto=create
+   spring.jpa.show-sql=true
+   spring.jpa.properties.hibernate.format_sql=true
+   spring.devtools.restart.enabled=true
+   logging.level.org.springframework.security=DEBUG
+   ```
+Выполните следующие SQL-запросы для создания базы данных и пользователя (если они ещё не существуют):
+
+-- Создаём базу данных (если она ещё не существует)
+CREATE DATABASE IF NOT EXISTS db_articles 
+    CHARACTER SET utf8mb4 
+    COLLATE utf8mb4_unicode_ci;
+
+-- Создаём пользователя (если он ещё не существует)
+CREATE USER IF NOT EXISTS 'articles'@'localhost' IDENTIFIED BY 'articles';
+
+-- Даем пользователю все привилегии на созданную базу данных
+GRANT ALL PRIVILEGES ON db_articles.* TO 'articles'@'localhost';
+
+-- Применяем изменения
+FLUSH PRIVILEGES;
+
+3. Откройте вкладку "Database":
 
 - Перейдите в правую часть окна IntelliJ IDEA и найдите вкладку "Database". Если она не отображается, вы можете открыть её через меню View -> Tool Windows -> Database.
 
