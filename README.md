@@ -38,7 +38,6 @@ http://localhost:8080
 
 
 ## База данных
-## База данных
 1. Подключение к базе данных
    Настройте файл `application.properties` следующим образом:
    ```properties
@@ -53,7 +52,7 @@ http://localhost:8080
    logging.level.org.springframework.security=DEBUG
    ```
 Выполните следующие SQL-запросы для создания базы данных и пользователя (если они ещё не существуют):
-
+    ```sql
 -- Создаём базу данных (если она ещё не существует)
 CREATE DATABASE IF NOT EXISTS db_articles 
     CHARACTER SET utf8mb4 
@@ -67,6 +66,7 @@ GRANT ALL PRIVILEGES ON db_articles.* TO 'articles'@'localhost';
 
 -- Применяем изменения
 FLUSH PRIVILEGES;
+    ```
 
 3. Откройте вкладку "Database":
 
