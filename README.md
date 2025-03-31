@@ -21,19 +21,20 @@
 
 ## Как запустить проект
 1. Убедитесь, что у вас установлены JDK и Maven.
-2. Клонируйте репозиторий:
+
+3. Клонируйте репозиторий:
     ```bash
     git clone https://github.com/kqzold/Article.git
     ```
-3. Перейдите в директорию проекта:
+4. Перейдите в директорию проекта:
     ```bash
     cd Article
     ```
-4. Соберите проект и запустите его:
+5. Соберите проект и запустите его:
     ```bash
     mvn spring-boot:run
     ```
-5. Приложение будет доступно по адресу:
+6. Приложение будет доступно по адресу:
 http://localhost:8080
 
 
@@ -41,18 +42,18 @@ http://localhost:8080
 1. Подключение к базе данных
    Настройте файл `application.properties` следующим образом:
    ```properties
-   spring.datasource.url=jdbc:mariadb://localhost:3306/db_articles
-   spring.datasource.username=articles
-   spring.datasource.password=articles
+   spring.datasource.url=jdbc:mariadb://localhost:3306/article?createDatabaseIfNotExist=true&serverTimezone=UTC
+   spring.datasource.username=root
+   spring.datasource.password=
 
    spring.jpa.hibernate.ddl-auto=create
    spring.jpa.show-sql=true
    spring.jpa.properties.hibernate.format_sql=true
    spring.devtools.restart.enabled=true
    logging.level.org.springframework.security=DEBUG
-   ```
+   
 Выполните следующие SQL-запросы для создания базы данных и пользователя (если они ещё не существуют):
-    ```properties
+
 -- Создаём базу данных (если она ещё не существует)
 CREATE DATABASE IF NOT EXISTS db_articles 
     CHARACTER SET utf8mb4 
