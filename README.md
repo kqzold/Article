@@ -52,7 +52,7 @@ http://localhost:8080
    logging.level.org.springframework.security=DEBUG
    ```
 Выполните следующие SQL-запросы для создания базы данных и пользователя (если они ещё не существуют):
-    ```sql
+    ```properties
 -- Создаём базу данных (если она ещё не существует)
 CREATE DATABASE IF NOT EXISTS db_articles 
     CHARACTER SET utf8mb4 
