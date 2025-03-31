@@ -11,6 +11,13 @@
 - `src/main/resources/templates`: Шаблоны страниц на Thymeleaf.
 - `src/main/resources/static`: Статические ресурсы, такие как CSS и JavaScript.
 - `src/main/resources/db`: Скрипты для инициализации базы данных.
+- config-Конфигурации Spring Security, инициализация данных
+- controllers - Контроллеры для обработки HTTP-запросов
+- entity - JPA-сущности: классы, представляющие таблицы в БД
+- repository - Интерфейсы Spring Data JPA для работы с БД
+- service - Интерфейсы бизнес-логики для сервисов
+- serviceImpl - Реализация сервисов
+- ArticlesApplication - Главный класс запуска Spring Boot
 
 ## Как запустить проект
 1. Убедитесь, что у вас установлены JDK и Maven.
@@ -26,8 +33,26 @@
     ```bash
     mvn spring-boot:run
     ```
+5. Приложение будет доступно по адресу:
+http://localhost:8080
 
 ## База данных
+1. Подключение к базе данных
+
+2. Откройте вкладку "Database":
+
+Перейдите в правую часть окна IntelliJ IDEA и найдите вкладку "Database". Если она не отображается, вы можете открыть её через меню View -> Tool Windows -> Database.
+Добавьте новое подключение к базе данных:
+
+Нажмите на значок + в верхней части вкладки "Database" и выберите Data Source -> H2.
+Настройте параметры подключения:
+
+В появившемся окне введите следующие параметры:
+URL: jdbc:h2:file:./data/testdb
+User: test
+Password: test
+Нажмите Test Connection, чтобы убедиться, что подключение успешно.
+
 ER-диаграмма базы данных:
 
 ![Снимок экрана (6)](https://github.com/user-attachments/assets/20202200-1813-44d5-9caa-2546b2e33ce8)
