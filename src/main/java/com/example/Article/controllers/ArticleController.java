@@ -32,6 +32,14 @@ public class ArticleController {
         this.userService = userService;
     }
 
+    @GetMapping("/search")
+    public String searchArticles(@RequestParam("query") String query, Model model) {
+        // Implement the search logic to find articles based on the query
+        List<Article> articles = articleService.searchArticlesByTitle(query);
+        model.addAttribute("articles", articles);
+        return "articles/list"; // Ensure this matches the Thymeleaf template path
+    }
+
     @GetMapping
     public String getAllArticles(Model model, Authentication authentication) {
         List<Article> articles = articleService.getAllArticlesSorted();
